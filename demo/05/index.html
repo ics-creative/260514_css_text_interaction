@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>5. ::target-text疑似要素のデモ</title>
+  <link href="../base.css" rel="stylesheet" />
+  <style>
+    .wrapper {
+      width: min(800px, calc(100% - 32px));
+    }
+
+    .compare {
+      /* 上は見出しへのリンク、下はテキストフラグメントへのリンクにする */
+      display: grid;
+      gap: 12px;
+    }
+
+    .demo {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f3f4f6;
+    }
+
+    .article {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .article h1 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .share-button {
+      width: fit-content;
+      max-width: 100%;
+      padding: 9px 14px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #0f766e;
+    }
+
+    .fragment-heading:target {
+      /* 見出しへのリンクでは、到達した要素全体を示すだけになる */
+      outline: 3px solid rgb(14 165 233 / 0.45);
+      outline-offset: 4px;
+      background: #e0f2fe;
+    }
+
+    ::target-text {
+      /* 共有リンクで到達した箇所を、本文の配色に合わせて強調する */
+      background-color: #fef3c7;
+      color: #1f2937;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
+      text-underline-offset: 0.16em;
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="compare">
+    <div class="demo">
+      <a class="share-button" href="#fragment-heading">見出しリンクを開く</a>
+      <article class="article">
+        <h1 id="fragment-heading" class="fragment-heading">共有したい章</h1>
+        <p>見出しリンクでは、共有したい一文そのものまでは示せないことがあります。</p>
+      </article>
+    </div>
+
+    <div class="demo">
+      <a class="share-button" href="./#:~:text=%E5%85%B1%E6%9C%89%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A7%E9%96%8B%E3%81%84%E3%81%9F%E4%B8%80%E6%96%87%E3%82%92%E6%9C%AC%E6%96%87%E3%81%AE%E4%B8%AD%E3%81%8B%E3%82%89%E8%A6%8B%E3%81%A4%E3%81%91%E3%82%84%E3%81%99%E3%81%8F%E3%81%97%E3%81%BE%E3%81%99">共有リンクを開く</a>
+      <article class="article">
+        <h1>共有したい本文</h1>
+        <p>テキストフラグメントを使うと、長い記事の中でも特定の一文へ直接移動できます。::target-text は共有リンクで開いた一文を本文の中から見つけやすくします。</p>
+      </article>
+    </div>
+  </div>
+</div>
+</body>
+</html>

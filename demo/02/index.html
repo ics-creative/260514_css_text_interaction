@@ -3,58 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>2. HTML属性でハート評価の見た目を切り替えるデモ</title>
+  <title>2. caret-colorプロパティのデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
     .wrapper {
-      width: auto;
-      gap: 28px;
-      padding: 100px;
+      width: min(800px, calc(100% - 32px));
     }
 
-    .heart-rating {
-      --fill: calc(attr(data-rating type(<number>), 0) * 20%);
+    .compare {
+      /* 上は背景に近いキャレット、下はアクセントカラーのキャレットにする */
+      display: grid;
+      gap: 12px;
+    }
 
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: #1f2937;
-      font-size: 2rem;
+    .form {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #111827;
+    }
 
-      .hearts {
-        width: 5em; /* ハート5個分 + すき間ぶんを含めた幅 */
-        height: 1em;
-        background: linear-gradient(to right, #ff5470 var(--fill), #e5e7eb var(--fill));
-        mask-image: url("../images/heart.svg");
-        mask-repeat: space;
-        mask-size: 1em 1em;
-      }
+    label,
+    .editable-field {
+      display: grid;
+      gap: 6px;
+      font-size: 0.94rem;
+      color: #d8e3f0;
+    }
 
-      .score {
-        font-size: 1.4rem;
-      }
+    input,
+    textarea,
+    .editable-note {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      font: inherit;
+      color: #e5eefb;
+      background: #111827;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    .editable-note {
+      min-height: 78px;
+    }
+
+    input:focus,
+    textarea:focus,
+    .editable-note:focus {
+      /* フォーカスしている入力欄は枠線でも状態を伝える */
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgb(14 165 233 / 0.18);
+    }
+
+    .bad input,
+    .bad textarea,
+    .bad .editable-note {
+      /* 背景に近いキャレット色だと、入力位置を見つけにくい */
+      caret-color: #111827;
+    }
+
+    .good input,
+    .good textarea,
+    .good .editable-note {
+      /* 入力位置を見つけやすいよう、UIのアクセントカラーを使う */
+      caret-color: #0ea5e9;
     }
   </style>
 </head>
 
 <body>
 <div class="wrapper">
-  <div class="heart-rating" data-rating="2.5">
-    <span class="hearts"></span>
-    <span class="score">2.5</span>
-  </div>
+  <div class="compare">
+    <div class="form bad">
+      <label>
+        検索キーワード
+        <input value="キャレットの色" />
+      </label>
+      <label>
+        メモ
+        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。</textarea>
+      </label>
+      <div class="editable-field">
+        編集できる本文
+        <p class="editable-note" contenteditable="true">入力位置を確認しながら本文を編集します。</p>
+      </div>
+    </div>
 
-  <div class="heart-rating" data-rating="3.3">
-    <span class="hearts"></span>
-    <span class="score">3.3</span>
-  </div>
-
-  <div class="heart-rating" data-rating="4.8">
-    <span class="hearts"></span>
-    <span class="score">4.8</span>
+    <div class="form good">
+      <label>
+        検索キーワード
+        <input value="キャレットの色" />
+      </label>
+      <label>
+        メモ
+        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。</textarea>
+      </label>
+      <div class="editable-field">
+        編集できる本文
+        <p class="editable-note" contenteditable="true">入力位置を確認しながら本文を編集します。</p>
+      </div>
+    </div>
   </div>
 </div>
-<script>
-</script>
 </body>
 </html>

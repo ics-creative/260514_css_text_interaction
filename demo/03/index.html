@@ -3,49 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>3. HTML属性で進捗バーの幅を変えるデモ</title>
+  <title>3. -webkit-tap-highlight-colorプロパティのデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
     .wrapper {
-      gap: 40px;
-      width: 300px;
+      width: min(720px, calc(100% - 32px));
+    }
 
-      input[type="range"] {
-        width: 100%;
-      }
+    .compare {
+      /* 上はタップハイライトなし、下は薄いハイライトを残す */
+      display: grid;
+      gap: 12px;
+    }
 
-      .bar {
-        height: 20px;
-        background: #555;
-        border-radius: 50px;
-        overflow: hidden;
+    .tap-group {
+      display: grid;
+      gap: 10px;
+      place-items: center;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f3f4f6;
+    }
 
-        &::before {
-          content: "";
-          display: block;
-          height: 100%;
-          width: attr(data-value %);
-          background: #7C71F6;
-          transition: width 0.3s;
-        }
-      }
+    .quiet-link,
+    .primary-button {
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .quiet-link {
+      color: #0f5f8f;
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .primary-button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #2563eb;
+    }
+
+    .bad a,
+    .bad button {
+      /* 透明にすると、モバイルでタップできた手がかりが弱くなる */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .good a,
+    .good button {
+      /* タップできた手がかりを残しつつ、画面になじむ濃さにする */
+      -webkit-tap-highlight-color: rgb(14 165 233 / 0.22);
+    }
+
+    .good .primary-button {
+      /* ボタンの色に近いハイライトで、タップ時の違和感を抑える */
+      -webkit-tap-highlight-color: rgb(37 99 235 / 0.24);
+    }
+
+    .good .quiet-link {
+      /* テキストリンクでは主張を弱め、読み心地を崩さない */
+      -webkit-tap-highlight-color: rgb(15 23 42 / 0.12);
+    }
+
+    .quiet-link:active,
+    .primary-button:active {
+      transform: translateY(1px);
     }
   </style>
 </head>
 
 <body>
 <div class="wrapper">
-  <input type="range" min="0" max="100" value="50" />
-  <div class="bar" data-value="50"></div>
+  <div class="compare">
+    <div class="tap-group bad">
+      <a class="quiet-link" href="#bad-link">リンクをタップする</a>
+      <button class="primary-button" type="button">ボタンをタップする</button>
+    </div>
+
+    <div class="tap-group good">
+      <a class="quiet-link" href="#good-link">リンクをタップする</a>
+      <button class="primary-button" type="button">ボタンをタップする</button>
+    </div>
+  </div>
 </div>
-
-<script>
-  const range = document.querySelector("input");
-  const bar = document.querySelector(".bar");
-
-  range.addEventListener("input", () => {
-    bar.setAttribute("data-value", range.value);
-  });
-</script>
 </body>
 </html>

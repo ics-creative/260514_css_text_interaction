@@ -3,37 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>1. HTML属性で色・サイズを指定するデモ</title>
+  <title>1. ::selection疑似要素のデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
-    .list {
-      display: grid;
-      place-items: center;
-      gap: 40px;
+    .wrapper {
+      width: min(800px, calc(100% - 32px));
     }
 
-    .item {
-      width: fit-content;
-      padding:
-        calc(attr(data-size type(<number>), 1) * 0.7rem)
-        calc(attr(data-size type(<number>), 1) * 1.2rem);
-      font-size: calc(attr(data-size type(<number>), 1) * 1rem);
-      border-radius: calc(attr(data-size type(<number>), 1) * 0.5rem);
-      background: attr(data-color type(<color>), gray);
-      color: #fff;
+    .compare {
+      /* 上は背景に近い選択色、下は背景ごとに調整した選択色にする */
+      display: grid;
+      gap: 12px;
+    }
+
+    .demo {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f3f4f6;
+    }
+
+    .article {
+      /* 選択色とのコントラストを比べるため、青みのある背景にする */
+      padding: 16px;
+      border-radius: 8px;
+      background: #c9dcf6;
+      color: #243b62;
+    }
+
+    .code-block {
+      /* コードブロック内の選択範囲も確認できるようにする */
+      overflow: auto;
+      margin: 0;
+      padding: 16px;
+      border-radius: 8px;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+      font-size: 0.86rem;
+      line-height: 1.7;
+      white-space: pre;
+      background: #111827;
+      color: #cbd5e1;
+    }
+
+    .bad .article::selection,
+    .bad .code-block::selection {
+      /* 背景に近い色だと、どこまで選べたかを確認しづらい */
+      background-color: #bfd7ff;
+      color: #2d4264;
+    }
+
+    .good .article::selection {
+      /* 通常の本文では淡い青にする */
+      background-color: #b3d4ff;
+      color: #1a1a1a;
+    }
+
+    .good .code-block::selection {
+      /* コードブロックでは暗い文字色と相性のよい黄色にする */
+      background-color: #fde68a;
+      color: #111827;
     }
   </style>
 </head>
 
 <body>
 <div class="wrapper">
-  <div class="list">
-    <p class="item" data-size="0.8">ニュース！</p>
-    <p class="item" data-size="1.2" data-color="orange">ビッグニュース！</p>
-    <p class="item" data-size="1.6" data-color="pink">特大ビッグニュース！</p>
+  <div class="compare">
+    <div class="demo bad">
+      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲の始まりと終わりを確認しづらくなります。</p>
+      <pre class="code-block"><code>const text = "選択範囲";
+console.log(text);</code></pre>
+    </div>
+
+    <div class="demo good">
+      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲の始まりと終わりを確認しづらくなります。</p>
+      <pre class="code-block"><code>const text = "選択範囲";
+console.log(text);</code></pre>
+    </div>
   </div>
 </div>
-<script>
-</script>
 </body>
 </html>

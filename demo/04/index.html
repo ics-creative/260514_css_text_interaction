@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>4. CSS Custom Highlight APIのデモ</title>
+  <link href="../base.css" rel="stylesheet" />
+  <style>
+    .wrapper {
+      width: min(800px, calc(100% - 32px));
+    }
+
+    .compare {
+      /* 上はmark要素、下はCustom Highlight APIで同じ語句を強調する */
+      display: grid;
+      gap: 12px;
+    }
+
+    .text {
+      padding: 16px;
+      border-radius: 8px;
+      background: #f3f4f6;
+    }
+
+    .bad mark {
+      /* 濃いmarkを使うと、ユーザー選択と検索ハイライトの区別がつきにくい */
+      padding: 0 0.08em;
+      background-color: rgb(250 204 21 / 0.8);
+      color: inherit;
+    }
+
+    .bad::selection,
+    .bad ::selection {
+      /* 検索ハイライトと似た色の選択にすると、状態の違いが曖昧になる */
+      background-color: rgb(250 204 21 / 0.72);
+      color: #111827;
+    }
+
+    ::highlight(search-result) {
+      /* 検索結果は本文の読みにくさを避けるため、薄い背景色にする */
+      background-color: rgb(250 204 21 / 0.35);
+    }
+
+    .good::selection,
+    .good ::selection {
+      /* ユーザー操作による選択は、よりはっきり区別する */
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="compare">
+    <p class="text bad"><mark>CSS Custom Highlight API</mark> のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
+
+    <p class="text good" data-highlight-source>CSS Custom Highlight API のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
+  </div>
+</div>
+
+<script>
+  const source = document.querySelector("[data-highlight-source]");
+  const textNode = source.firstChild;
+  const keyword = "CSS Custom Highlight API";
+  const startIndex = textNode.textContent.indexOf(keyword);
+  const endIndex = startIndex + keyword.length;
+
+  if ("highlights" in CSS && "Highlight" in window && startIndex >= 0) {
+    const range = new Range();
+
+    // ハイライトしたいテキストノードの範囲を登録する
+    range.setStart(textNode, startIndex);
+    range.setEnd(textNode, endIndex);
+
+    // CSSで参照するための名前を付けて登録する
+    CSS.highlights.set("search-result", new Highlight(range));
+  }
+</script>
+</body>
+</html>

@@ -1,9 +1,11 @@
-# Advanced attr() のデモ
+# テキスト操作のUXを整えるCSSのデモ
 
-CSS の Advanced `attr()` を使ったデモ集です。
+CSS のテキスト選択・入力・タップ・ハイライト表現を使ったデモ集です。
 
-本記事のデモは、**Chrome・Edge 133以上** でご覧ください。
+## デモ
 
-1. HTML属性で色・サイズを指定する
-2. HTML属性でハート評価の見た目を切り替える
-3. HTML属性で進捗バーの幅を変える
+- [1. `::selection`疑似要素](./demo/01/)
+- [2. `caret-color`プロパティ](./demo/02/)
+- [3. `-webkit-tap-highlight-color`プロパティ](./demo/03/)
+- [4. CSS Custom Highlight API](./demo/04/)
+- [5. `::target-text`疑似要素](./demo/05/)
