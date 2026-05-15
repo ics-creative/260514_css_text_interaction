@@ -6,10 +6,6 @@
   <title>2. caret-colorプロパティのデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
-    .wrapper {
-      width: min(800px, calc(100% - 32px));
-    }
-
     .compare {
       /* 上は背景に近いキャレット、下はアクセントカラーのキャレットにする */
       display: grid;
@@ -24,17 +20,14 @@
       background: #111827;
     }
 
-    label,
-    .editable-field {
+    label {
       display: grid;
       gap: 6px;
       font-size: 0.94rem;
       color: #d8e3f0;
     }
 
-    input,
-    textarea,
-    .editable-note {
+    textarea {
       width: 100%;
       min-width: 0;
       padding: 12px 14px;
@@ -47,32 +40,26 @@
     }
 
     textarea {
-      min-height: 112px;
+      min-height: 80px;
       resize: vertical;
     }
 
-    .editable-note {
-      min-height: 78px;
-    }
-
-    input:focus,
-    textarea:focus,
-    .editable-note:focus {
-      /* フォーカスしている入力欄は枠線でも状態を伝える */
+    textarea:focus {
       border-color: #38bdf8;
       box-shadow: 0 0 0 3px rgb(14 165 233 / 0.18);
     }
 
-    .bad input,
-    .bad textarea,
-    .bad .editable-note {
-      /* 背景に近いキャレット色だと、入力位置を見つけにくい */
-      caret-color: #111827;
+    .bad textarea {
+      /* キャレットが透明だと、入力位置を見つけにくい */
+      caret-color: transparent;
     }
 
-    .good input,
-    .good textarea,
-    .good .editable-note {
+    .bad2 textarea {
+      /* 背景に近いキャレット色だと、入力位置を見つけにくい */
+      caret-color: #1e2941;
+    }
+
+    .good textarea{
       /* 入力位置を見つけやすいよう、UIのアクセントカラーを使う */
       caret-color: #0ea5e9;
     }
@@ -84,32 +71,23 @@
   <div class="compare">
     <div class="form bad">
       <label>
-        検索キーワード
-        <input value="キャレットの色" />
+        😢️ キャレットが透明
+        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
+    </div>
+
+    <div class="form bad2">
       <label>
-        メモ
-        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。</textarea>
+        😢️ キャレットが背景色と近い
+        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
-      <div class="editable-field">
-        編集できる本文
-        <p class="editable-note" contenteditable="true">入力位置を確認しながら本文を編集します。</p>
-      </div>
     </div>
 
     <div class="form good">
       <label>
-        検索キーワード
-        <input value="キャレットの色" />
+        ☺️ キャレットが見やすい
+        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
-      <label>
-        メモ
-        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。</textarea>
-      </label>
-      <div class="editable-field">
-        編集できる本文
-        <p class="editable-note" contenteditable="true">入力位置を確認しながら本文を編集します。</p>
-      </div>
     </div>
   </div>
 </div>

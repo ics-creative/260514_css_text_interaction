@@ -6,12 +6,8 @@
   <title>4. CSS Custom Highlight APIのデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
-    .wrapper {
-      width: min(800px, calc(100% - 32px));
-    }
-
     .compare {
-      /* 上はmark要素、下はCustom Highlight APIで同じ語句を強調する */
+      /* 上下ともCustom Highlight APIで同じ語句を強調する */
       display: grid;
       gap: 12px;
     }
@@ -22,13 +18,6 @@
       background: #f3f4f6;
     }
 
-    .bad mark {
-      /* 濃いmarkを使うと、ユーザー選択と検索ハイライトの区別がつきにくい */
-      padding: 0 0.08em;
-      background-color: rgb(250 204 21 / 0.8);
-      color: inherit;
-    }
-
     .bad::selection,
     .bad ::selection {
       /* 検索ハイライトと似た色の選択にすると、状態の違いが曖昧になる */
@@ -36,7 +25,12 @@
       color: #111827;
     }
 
-    ::highlight(search-result) {
+    ::highlight(search-result-bad) {
+      /* 選択色と近いハイライトは、ユーザー操作との違いが分かりにくい */
+      background-color: rgb(250 204 21 / 0.72);
+    }
+
+    ::highlight(search-result-good) {
       /* 検索結果は本文の読みにくさを避けるため、薄い背景色にする */
       background-color: rgb(250 204 21 / 0.35);
     }
@@ -53,20 +47,25 @@
 <body>
 <div class="wrapper">
   <div class="compare">
-    <p class="text bad"><mark>CSS Custom Highlight API</mark> のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
+    <p class="text bad" data-highlight-source="search-result-bad">CSS Custom Highlight API のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
 
-    <p class="text good" data-highlight-source>CSS Custom Highlight API のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
+    <p class="text good" data-highlight-source="search-result-good">CSS Custom Highlight API のハイライトと選択範囲の色が近いと、同じ語句をドラッグしたときに状態の違いが分かりにくくなります。</p>
   </div>
 </div>
 
 <script>
-  const source = document.querySelector("[data-highlight-source]");
-  const textNode = source.firstChild;
   const keyword = "CSS Custom Highlight API";
-  const startIndex = textNode.textContent.indexOf(keyword);
-  const endIndex = startIndex + keyword.length;
 
-  if ("highlights" in CSS && "Highlight" in window && startIndex >= 0) {
+  document.querySelectorAll("[data-highlight-source]").forEach((source) => {
+    const textNode = source.firstChild;
+    const startIndex = textNode.textContent.indexOf(keyword);
+    const endIndex = startIndex + keyword.length;
+    const highlightName = source.dataset.highlightSource;
+
+    if (!("highlights" in CSS && "Highlight" in window && startIndex >= 0)) {
+      return;
+    }
+
     const range = new Range();
 
     // ハイライトしたいテキストノードの範囲を登録する
@@ -74,8 +73,8 @@
     range.setEnd(textNode, endIndex);
 
     // CSSで参照するための名前を付けて登録する
-    CSS.highlights.set("search-result", new Highlight(range));
-  }
+    CSS.highlights.set(highlightName, new Highlight(range));
+  });
 </script>
 </body>
 </html>

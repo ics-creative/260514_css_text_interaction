@@ -6,12 +6,7 @@
   <title>1. ::selection疑似要素のデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
-    .wrapper {
-      width: min(800px, calc(100% - 32px));
-    }
-
     .compare {
-      /* 上は背景に近い選択色、下は背景ごとに調整した選択色にする */
       display: grid;
       gap: 12px;
     }
@@ -25,27 +20,16 @@
     }
 
     .article {
-      /* 選択色とのコントラストを比べるため、青みのある背景にする */
       padding: 16px;
       border-radius: 8px;
-      background: #c9dcf6;
+      background: #88c9ea;
       color: #243b62;
     }
 
     .code-block {
-      /* コードブロック内の選択範囲も確認できるようにする */
       overflow: auto;
-      margin: 0;
       padding: 16px;
       border-radius: 8px;
-      font-family:
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        Monaco,
-        Consolas,
-        "Liberation Mono",
-        monospace;
       font-size: 0.86rem;
       line-height: 1.7;
       white-space: pre;
@@ -53,16 +37,8 @@
       color: #cbd5e1;
     }
 
-    .bad .article::selection,
-    .bad .code-block::selection {
-      /* 背景に近い色だと、どこまで選べたかを確認しづらい */
-      background-color: #bfd7ff;
-      color: #2d4264;
-    }
-
     .good .article::selection {
-      /* 通常の本文では淡い青にする */
-      background-color: #b3d4ff;
+      background-color: #ffd5b3;
       color: #1a1a1a;
     }
 
@@ -78,14 +54,14 @@
 <div class="wrapper">
   <div class="compare">
     <div class="demo bad">
-      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲の始まりと終わりを確認しづらくなります。</p>
-      <pre class="code-block"><code>const text = "選択範囲";
+      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲を認識しづらい</p>
+      <pre class="code-block"><code>const text = "選択範囲の色が文字色に近いと、コピーしたい範囲を認識しづらい";
 console.log(text);</code></pre>
     </div>
 
     <div class="demo good">
-      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲の始まりと終わりを確認しづらくなります。</p>
-      <pre class="code-block"><code>const text = "選択範囲";
+      <p class="article">選択範囲の色が背景色とかぶらない例</p>
+      <pre class="code-block"><code>const text = "選択範囲の色が文字色とかぶらない例";
 console.log(text);</code></pre>
     </div>
   </div>
