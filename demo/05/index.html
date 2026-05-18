@@ -41,6 +41,12 @@
       background: #0f766e;
     }
 
+    .share-action {
+      /* リンクのラベルと英訳をひとまとまりにして配置する */
+      display: grid;
+      justify-items: start;
+    }
+
     .fragment-heading:target {
       /* 見出しへのリンクでは、到達した要素全体を示すだけになる */
       outline: 3px solid rgb(14 165 233 / 0.45);
@@ -63,18 +69,32 @@
 <div class="wrapper">
   <div class="compare">
     <div class="demo">
-      <a class="share-button" href="#fragment-heading">見出しリンクを開く</a>
+      <div class="share-action">
+        <a class="share-button" href="#fragment-heading">見出しリンクを開く</a>
+        <p class="translation" lang="en">Open the heading link.</p>
+      </div>
       <article class="article">
         <h1 id="fragment-heading" class="fragment-heading">共有したい章</h1>
-        <p>見出しリンクでは、共有したい一文そのものまでは示せないことがあります。</p>
+        <p class="translation" lang="en">The section you want to share.</p>
+        <p>
+          見出しリンクでは、共有したい一文そのものまでは示せないことがあります。
+          <span class="translation" lang="en">With a heading link, you may not be able to point to the exact sentence you want to share.</span>
+        </p>
       </article>
     </div>
 
     <div class="demo">
-      <a class="share-button" href="./#:~:text=%E5%85%B1%E6%9C%89%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%A7%E9%96%8B%E3%81%84%E3%81%9F%E4%B8%80%E6%96%87%E3%82%92%E6%9C%AC%E6%96%87%E3%81%AE%E4%B8%AD%E3%81%8B%E3%82%89%E8%A6%8B%E3%81%A4%E3%81%91%E3%82%84%E3%81%99%E3%81%8F%E3%81%97%E3%81%BE%E3%81%99">共有リンクを開く</a>
+      <div class="share-action">
+        <a class="share-button" href="./#:~:text=長い記事の中でも特定の一文へ直接移動できます">共有リンクを開く</a>
+        <p class="translation" lang="en">Open the shared link.</p>
+      </div>
       <article class="article">
         <h1>共有したい本文</h1>
-        <p>テキストフラグメントを使うと、長い記事の中でも特定の一文へ直接移動できます。::target-text は共有リンクで開いた一文を本文の中から見つけやすくします。</p>
+        <p class="translation" lang="en">The body text you want to share.</p>
+        <p>
+          テキストフラグメントを使うと、長い記事の中でも特定の一文へ直接移動できます。::target-text は共有リンクで開いた一文を本文の中から見つけやすくします。
+          <span class="translation" lang="en">With text fragments, you can jump directly to a specific sentence even in a long article. ::target-text makes the sentence opened from a shared link easier to find in the body text.</span>
+        </p>
       </article>
     </div>
   </div>

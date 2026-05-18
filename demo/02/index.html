@@ -63,6 +63,11 @@
       /* 入力位置を見つけやすいよう、UIのアクセントカラーを使う */
       caret-color: #0ea5e9;
     }
+
+    .form .translation {
+      /* 暗い入力欄の上でも英訳が読める明るさにする */
+      color: #a8b5c7;
+    }
   </style>
 </head>
 
@@ -71,21 +76,30 @@
   <div class="compare">
     <div class="form bad">
       <label>
-        😢️ キャレットが透明
+        <span>
+          😢️ キャレットが透明
+          <span class="translation" lang="en">The caret is transparent.</span>
+        </span>
         <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
 
     <div class="form bad2">
       <label>
-        😢️ キャレットが背景色と近い
+        <span>
+          😢️ キャレットが背景色と近い
+          <span class="translation" lang="en">The caret color is close to the background color.</span>
+        </span>
         <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
 
     <div class="form good">
       <label>
-        ☺️ キャレットが見やすい
+        <span>
+          ☺️ キャレットが見やすい
+          <span class="translation" lang="en">The caret is easy to see.</span>
+        </span>
         <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>

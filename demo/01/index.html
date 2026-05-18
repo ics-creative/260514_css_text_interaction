@@ -54,14 +54,20 @@
 <div class="wrapper">
   <div class="compare">
     <div class="demo bad">
-      <p class="article">選択範囲の色が背景に近いと、コピーしたい範囲を認識しづらい</p>
-      <pre class="code-block"><code>const text = "選択範囲の色が文字色に近いと、コピーしたい範囲を認識しづらい";
+      <p class="article">
+        選択範囲の色が背景に近いと、コピーしたい範囲を認識しづらい
+        <span class="translation" lang="en">When the selection color is too close to the background, it is hard to recognize the range you want to copy.</span>
+      </p>
+      <pre class="code-block"><code>const text = "When the selection color is too close to the text color, it is hard to recognize the range you want to copy.";
 console.log(text);</code></pre>
     </div>
 
     <div class="demo good">
-      <p class="article">選択範囲の色が背景色とかぶらない例</p>
-      <pre class="code-block"><code>const text = "選択範囲の色が文字色とかぶらない例";
+      <p class="article">
+        選択範囲の色が背景色とかぶらない例
+        <span class="translation" lang="en">An example where the selection color does not blend into the background.</span>
+      </p>
+      <pre class="code-block"><code>const text = "An example where the selection color does not blend into the text color.";
 console.log(text);</code></pre>
     </div>
   </div>

@@ -25,6 +25,14 @@
       background: #f3f4f6;
     }
 
+    .notice,
+    .control-item {
+      /* 操作文と英訳を中央にそろえて、デモの比較を見やすくする */
+      display: grid;
+      justify-items: center;
+      text-align: center;
+    }
+
     .quiet-link,
     .primary-button {
       width: fit-content;
@@ -77,16 +85,31 @@
 
 <body>
 <div class="wrapper">
-  ※スマートフォンでご確認ください
+  <div class="notice">
+    <p>※スマートフォンでご確認ください</p>
+    <p class="translation" lang="en">Please check this on a smartphone.</p>
+  </div>
   <div class="compare">
     <div class="tap-group bad">
-      <a class="quiet-link" href="#bad-link">リンクをタップする</a>
-      <button class="primary-button" type="button">ボタンをタップする</button>
+      <div class="control-item">
+        <a class="quiet-link" href="#bad-link">リンクをタップする</a>
+        <p class="translation" lang="en">Tap the link.</p>
+      </div>
+      <div class="control-item">
+        <button class="primary-button" type="button">ボタンをタップする</button>
+        <p class="translation" lang="en">Tap the button.</p>
+      </div>
     </div>
 
     <div class="tap-group good">
-      <a class="quiet-link" href="#good-link">リンクをタップする</a>
-      <button class="primary-button" type="button">ボタンをタップする</button>
+      <div class="control-item">
+        <a class="quiet-link" href="#good-link">リンクをタップする</a>
+        <p class="translation" lang="en">Tap the link.</p>
+      </div>
+      <div class="control-item">
+        <button class="primary-button" type="button">ボタンをタップする</button>
+        <p class="translation" lang="en">Tap the button.</p>
+      </div>
     </div>
   </div>
 </div>

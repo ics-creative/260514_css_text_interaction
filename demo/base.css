@@ -47,3 +47,12 @@ button {
   border-radius: 10px;
   background: #ffffff;
 }
+
+.translation {
+  /* 日本語本文の直下に、英訳を少し控えめなサイズで添える */
+  display: block;
+  margin-top: 6px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #64748b;
+}
