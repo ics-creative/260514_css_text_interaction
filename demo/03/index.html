@@ -34,7 +34,7 @@
     }
 
     .quiet-link,
-    .primary-button {
+    .tap-card {
       width: fit-content;
       max-width: 100%;
     }
@@ -46,12 +46,14 @@
       text-underline-offset: 0.18em;
     }
 
-    .primary-button {
-      padding: 10px 16px;
-      border: 0;
+    .tap-card {
+      min-width: 220px;
+      padding: 12px 18px;
+      border: 1px solid #bfdbfe;
       border-radius: 8px;
-      color: #ffffff;
-      background: #2563eb;
+      color: #1e3a8a;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
     }
 
     .bad a,
@@ -66,9 +68,9 @@
       -webkit-tap-highlight-color: rgb(14 165 233 / 0.22);
     }
 
-    .good .primary-button {
-      /* ボタンの色に近いハイライトで、タップ時の違和感を抑える */
-      -webkit-tap-highlight-color: rgb(37 99 235 / 0.24);
+    .good .tap-card {
+      /* 明るい面にハイライトを重ねて、タップできた手がかりを見えやすくする */
+      -webkit-tap-highlight-color: rgb(37 99 235 / 0.32);
     }
 
     .good .quiet-link {
@@ -76,9 +78,9 @@
       -webkit-tap-highlight-color: rgb(15 23 42 / 0.12);
     }
 
-    .quiet-link:active,
-    .primary-button:active {
-      transform: translateY(1px);
+    .quiet-link:active {
+      /* リンク自体のフィードバックは控えめにして、タップハイライトとの差を見やすくする */
+      color: #164e63;
     }
   </style>
 </head>
@@ -96,8 +98,8 @@
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
-        <button class="primary-button" type="button">ボタンをタップする</button>
-        <p class="translation" lang="en">Tap the button.</p>
+        <button class="tap-card" type="button">項目をタップする</button>
+        <p class="translation" lang="en">Tap the item.</p>
       </div>
     </div>
 
@@ -107,8 +109,8 @@
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
-        <button class="primary-button" type="button">ボタンをタップする</button>
-        <p class="translation" lang="en">Tap the button.</p>
+        <button class="tap-card" type="button">項目をタップする</button>
+        <p class="translation" lang="en">Tap the item.</p>
       </div>
     </div>
   </div>
