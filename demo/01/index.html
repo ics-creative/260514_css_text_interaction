@@ -16,7 +16,7 @@
       gap: 12px;
       padding: 16px;
       border-radius: 8px;
-      background: #f3f4f6;
+      background: var(--theme-primary-soft);
     }
 
     .article {
@@ -33,19 +33,18 @@
       font-size: 0.86rem;
       line-height: 1.7;
       white-space: pre;
-      background: #111827;
-      color: #cbd5e1;
+      background: var(--theme-primary-dark);
+      color: var(--theme-tooltip-bg);
     }
 
     .good .article::selection {
-      background-color: #ffd5b3;
-      color: #1a1a1a;
+      background-color: var(--theme-tooltip-bg);
+      color: var(--theme-primary);
     }
 
     .good .code-block::selection {
-      /* コードブロックでは暗い文字色と相性のよい黄色にする */
-      background-color: #fde68a;
-      color: #111827;
+      background-color: var(--theme-secondary);
+      color: var(--theme-primary-dark);
     }
   </style>
 </head>

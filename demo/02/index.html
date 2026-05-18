@@ -17,25 +17,25 @@
       gap: 12px;
       padding: 18px;
       border-radius: 8px;
-      background: #111827;
+      background: var(--theme-primary-dark);
     }
 
     label {
       display: grid;
       gap: 6px;
       font-size: 0.94rem;
-      color: #d8e3f0;
+      color: var(--theme-tooltip-bg);
     }
 
     textarea {
       width: 100%;
       min-width: 0;
       padding: 12px 14px;
-      border: 1px solid #334155;
+      border: 1px solid rgb(var(--theme-secondary-rgb) / 0.48);
       border-radius: 8px;
       font: inherit;
-      color: #e5eefb;
-      background: #111827;
+      color: #ffffff;
+      background: #180f52;
       outline: none;
     }
 
@@ -45,8 +45,8 @@
     }
 
     textarea:focus {
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgb(14 165 233 / 0.18);
+      border-color: var(--theme-secondary);
+      box-shadow: 0 0 0 3px rgb(var(--theme-secondary-rgb) / 0.24);
     }
 
     .bad textarea {
@@ -56,17 +56,16 @@
 
     .bad2 textarea {
       /* 背景に近いキャレット色だと、入力位置を見つけにくい */
-      caret-color: #1e2941;
+      caret-color: #24146f;
     }
 
     .good textarea{
-      /* 入力位置を見つけやすいよう、UIのアクセントカラーを使う */
-      caret-color: #0ea5e9;
+      /* 入力位置を見つけやすいよう、明るい色を使う */
+      caret-color: var(--theme-secondary);
     }
 
     .form .translation {
-      /* 暗い入力欄の上でも英訳が読める明るさにする */
-      color: #a8b5c7;
+      color: var(--theme-tooltip-bg);
     }
   </style>
 </head>

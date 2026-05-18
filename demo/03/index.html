@@ -22,7 +22,7 @@
       place-items: center;
       padding: 16px;
       border-radius: 8px;
-      background: #f3f4f6;
+      background: var(--theme-primary-soft);
     }
 
     .notice,
@@ -33,27 +33,27 @@
       text-align: center;
     }
 
-    .quiet-link,
-    .tap-card {
+    .tap-group a,
+    .tap-group button {
       width: fit-content;
       max-width: 100%;
     }
 
-    .quiet-link {
-      color: #0f5f8f;
+    .tap-group a {
+      color: var(--theme-primary);
       text-decoration: underline;
       text-decoration-thickness: 0.08em;
       text-underline-offset: 0.18em;
     }
 
-    .tap-card {
+    .tap-group button {
       min-width: 220px;
       padding: 12px 18px;
-      border: 1px solid #bfdbfe;
+      border: 1px solid var(--theme-primary-border);
       border-radius: 8px;
-      color: #1e3a8a;
+      color: var(--theme-primary);
       background: #ffffff;
-      box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
+      box-shadow: 0 1px 2px rgb(var(--theme-primary-rgb) / 0.12);
     }
 
     .bad a,
@@ -64,23 +64,12 @@
 
     .good a,
     .good button {
-      /* タップできた手がかりを残しつつ、画面になじむ濃さにする */
-      -webkit-tap-highlight-color: rgb(14 165 233 / 0.22);
-    }
-
-    .good .tap-card {
       /* 明るい面にハイライトを重ねて、タップできた手がかりを見えやすくする */
-      -webkit-tap-highlight-color: rgb(37 99 235 / 0.32);
+      -webkit-tap-highlight-color: rgb(var(--theme-primary-rgb) / 0.32);
     }
 
-    .good .quiet-link {
-      /* テキストリンクでは主張を弱め、読み心地を崩さない */
-      -webkit-tap-highlight-color: rgb(15 23 42 / 0.12);
-    }
-
-    .quiet-link:active {
-      /* リンク自体のフィードバックは控えめにして、タップハイライトとの差を見やすくする */
-      color: #164e63;
+    .tap-group a:active {
+      color: var(--theme-primary-dark);
     }
   </style>
 </head>
@@ -94,22 +83,22 @@
   <div class="compare">
     <div class="tap-group bad">
       <div class="control-item">
-        <a class="quiet-link" href="#bad-link">リンクをタップする</a>
+        <a href="#bad-link">リンクをタップする</a>
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
-        <button class="tap-card" type="button">項目をタップする</button>
+        <button type="button">項目をタップする</button>
         <p class="translation" lang="en">Tap the item.</p>
       </div>
     </div>
 
     <div class="tap-group good">
       <div class="control-item">
-        <a class="quiet-link" href="#good-link">リンクをタップする</a>
+        <a href="#good-link">リンクをタップする</a>
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
-        <button class="tap-card" type="button">項目をタップする</button>
+        <button type="button">項目をタップする</button>
         <p class="translation" lang="en">Tap the item.</p>
       </div>
     </div>

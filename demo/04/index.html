@@ -15,30 +15,30 @@
     .text {
       padding: 16px;
       border-radius: 8px;
-      background: #f3f4f6;
+      background: var(--theme-primary-soft);
     }
 
     .bad::selection,
     .bad ::selection {
       /* 検索ハイライトと似た色の選択にすると、状態の違いが曖昧になる */
-      background-color: rgb(250 204 21 / 0.72);
-      color: #111827;
+      background-color: rgb(var(--theme-secondary-rgb) / 0.44);
+      color: var(--theme-primary-dark);
     }
 
     ::highlight(search-result-bad) {
       /* 選択色と近いハイライトは、ユーザー操作との違いが分かりにくい */
-      background-color: rgb(250 204 21 / 0.72);
+      background-color: rgb(var(--theme-secondary-rgb) / 0.44);
     }
 
     ::highlight(search-result-good) {
       /* 検索結果は本文の読みにくさを避けるため、薄い背景色にする */
-      background-color: rgb(250 204 21 / 0.35);
+      background-color: rgb(var(--theme-secondary-rgb) / 0.18);
     }
 
     .good::selection,
     .good ::selection {
       /* ユーザー操作による選択は、よりはっきり区別する */
-      background-color: #2563eb;
+      background-color: var(--theme-primary);
       color: #ffffff;
     }
   </style>
