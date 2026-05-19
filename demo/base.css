@@ -6,19 +6,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --theme-primary: #3223b3;
-  --theme-primary-rgb: 50 35 179;
-  --theme-secondary: #bab4ff;
-  --theme-secondary-rgb: 124 113 246;
-  --theme-tooltip-bg: #ebe9fc;
-  --theme-primary-dark: #21136f;
-  --theme-primary-soft: #f5f3ff;
-  --theme-primary-border: #c8c1fb;
-  --theme-text: #1f1b3f;
-  --theme-text-muted: #6f6a8c;
-}
-
 html {
   height: 100%;
 
@@ -32,7 +19,7 @@ html {
     font-size: 16px;
     font-weight: bold;
     line-height: 1.7;
-    color: var(--theme-text);
+    color: #1f1b3f;
     background-color: #2b2840;
   }
 }
@@ -67,5 +54,5 @@ button {
   margin-top: 6px;
   font-size: 0.84rem;
   line-height: 1.55;
-  color: var(--theme-text-muted);
+  color: #6f6a8c;
 }
