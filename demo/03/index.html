@@ -6,12 +6,7 @@
   <title>3. -webkit-tap-highlight-colorプロパティのデモ</title>
   <link href="../base.css" rel="stylesheet" />
   <style>
-    .wrapper {
-      width: min(720px, calc(100% - 32px));
-    }
-
     .compare {
-      /* 上はタップハイライトなし、下は薄いハイライトを残す */
       display: grid;
       gap: 12px;
     }
@@ -27,16 +22,9 @@
 
     .notice,
     .control-item {
-      /* 操作文と英訳を中央にそろえて、デモの比較を見やすくする */
       display: grid;
       justify-items: center;
       text-align: center;
-    }
-
-    .tap-group a,
-    .tap-group button {
-      width: fit-content;
-      max-width: 100%;
     }
 
     .tap-group a {
@@ -64,7 +52,7 @@
 
     .good a,
     .good button {
-      /* 明るい面にハイライトを重ねて、タップできた手がかりを見えやすくする */
+      /* ハイライトを重ねて、タップできた手がかりを見えやすくする */
       -webkit-tap-highlight-color: rgb(50 35 179 / 0.32);
     }
 

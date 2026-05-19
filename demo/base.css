@@ -49,7 +49,6 @@ button {
 }
 
 .translation {
-  /* 日本語本文の直下に、英訳を少し控えめなサイズで添える */
   display: block;
   margin-top: 6px;
   font-size: 0.84rem;
