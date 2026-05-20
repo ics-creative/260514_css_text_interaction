@@ -46,14 +46,14 @@
     }
 
     .fragment-heading:target {
-      /* 見出しへのリンクでは、到達した要素全体を示すだけになる */
+      /* 悪い例：見出しへのリンクでは、到達した要素全体を示すだけになる */
       outline: 3px solid rgb(50 35 179 / 0.42);
       outline-offset: 4px;
       background: #ebe9fc;
     }
 
     ::target-text {
-      /* 共有リンクで到達した箇所を、本文の配色に合わせて強調する */
+      /* 良い例：共有リンクで到達した箇所を、本文の配色に合わせて強調する */
       background-color: #ebe9fc;
       color: #1f1b3f;
       text-decoration: underline;
@@ -66,6 +66,7 @@
 <body>
 <div class="wrapper">
   <div class="compare">
+    <!-- 悪い例：見出しリンクでは、共有したい一文そのものまでは示せない -->
     <div class="demo">
       <div class="share-action">
         <a class="share-button" href="#fragment-heading">見出しリンクを開く</a>
@@ -81,6 +82,7 @@
       </article>
     </div>
 
+    <!-- 良い例：テキストフラグメントで、本文中の一文へ直接移動する -->
     <div class="demo">
       <div class="share-action">
         <a class="share-button" href="./#:~:text=長い記事の中でも特定の一文へ直接移動できます">共有リンクを開く</a>

@@ -38,11 +38,13 @@
     }
 
     .good .article::selection {
+      /* 良い例：本文では、選択範囲が背景に埋もれない色にする */
       background-color: #ebe9fc;
       color: #3223b3;
     }
 
     .good .code-block::selection {
+      /* 良い例：コードブロックでは、暗い背景でも読める色にする */
       background-color: #bab4ff;
       color: #21136f;
     }
@@ -52,6 +54,7 @@
 <body>
 <div class="wrapper">
   <div class="compare">
+    <!-- 悪い例：選択範囲の色を調整せず、背景や文字色に埋もれやすい状態 -->
     <div class="demo bad">
       <p class="article">
         選択範囲の色が背景に近いと、コピーしたい範囲を認識しづらい
@@ -61,6 +64,7 @@
 console.log(text);</code></pre>
     </div>
 
+    <!-- 良い例：本文とコードブロックで、読みやすい選択色を指定する -->
     <div class="demo good">
       <p class="article">
         選択範囲の色が背景色とかぶらない例
