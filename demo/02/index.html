@@ -7,7 +7,7 @@
   <link href="../base.css" rel="stylesheet" />
   <style>
     .compare {
-      /* 上は背景に近いキャレット、下はアクセントカラーのキャレットにする */
+      /* 上は見づらいキャレット、下は見やすいキャレットにする */
       display: grid;
       gap: 12px;
     }
@@ -50,17 +50,17 @@
     }
 
     .bad textarea {
-      /* キャレットが透明だと、入力位置を見つけにくい */
+      /* 悪い例：キャレットが透明だと、入力位置を見つけにくい */
       caret-color: transparent;
     }
 
     .bad2 textarea {
-      /* 背景に近いキャレット色だと、入力位置を見つけにくい */
+      /* 悪い例：背景色とキャレットの色が近いと、入力位置を見つけにくい */
       caret-color: #24146f;
     }
 
-    .good textarea{
-      /* 入力位置を見つけやすいよう、明るい色を使う */
+    .good textarea {
+      /* 良い例：入力位置を見つけやすいよう、明るい色を使う */
       caret-color: #bab4ff;
     }
 
@@ -79,7 +79,7 @@
           😢️ キャレットが透明
           <span class="translation" lang="en">The caret is transparent.</span>
         </span>
-        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
+        <textarea>キャレットが見えないと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
 
@@ -89,7 +89,7 @@
           😢️ キャレットが背景色と近い
           <span class="translation" lang="en">The caret color is close to the background color.</span>
         </span>
-        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
+        <textarea>キャレットが見えないと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
 
@@ -99,7 +99,7 @@
           ☺️ キャレットが見やすい
           <span class="translation" lang="en">The caret is easy to see.</span>
         </span>
-        <textarea>キャレットが見えないと、入力位置が分かりにくくなります。この文章は編集できます。</textarea>
+        <textarea>キャレットが見えないと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
   </div>
