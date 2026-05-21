@@ -52,6 +52,12 @@
       text-align: center;
     }
 
+    .link-target {
+      scroll-margin-block: 16px;
+      font-size: 0.94rem;
+      color: #625d7a;
+    }
+
     .bad {
       & a,
       & button {
@@ -79,32 +85,28 @@
   <div class="compare">
     <div class="tap-group bad">
       <div class="control-item">
-        <a href="https://ics.media/" target="_blank" rel="noopener">リンクをタップする</a>
+        <a href="#bad-link-target">リンクをタップする</a>
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
         <button type="button">項目をタップする</button>
         <p class="translation" lang="en">Tap the item.</p>
       </div>
+      <p id="bad-link-target" class="link-target">リンク先</p>
     </div>
 
     <div class="tap-group good">
       <div class="control-item">
-        <a href="https://ics.media/" target="_blank" rel="noopener">リンクをタップする</a>
+        <a href="#good-link-target">リンクをタップする</a>
         <p class="translation" lang="en">Tap the link.</p>
       </div>
       <div class="control-item">
         <button type="button">項目をタップする</button>
         <p class="translation" lang="en">Tap the item.</p>
       </div>
+      <p id="good-link-target" class="link-target">リンク先</p>
     </div>
   </div>
 </div>
-<script>
-  document.querySelectorAll(".tap-group a").forEach((link) => {
-    // デモ画面にとどめるため、通常のリンク遷移だけ止める
-    link.addEventListener("click", (event) => event.preventDefault());
-  });
-</script>
 </body>
 </html>
