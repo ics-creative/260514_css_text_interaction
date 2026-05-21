@@ -17,6 +17,10 @@
       padding: 18px;
       border-radius: 8px;
       background: #21136f;
+
+      .translation {
+        color: #ebe9fc;
+      }
     }
 
     label {
@@ -29,43 +33,43 @@
     textarea {
       width: 100%;
       min-width: 0;
+      min-height: 80px;
       padding: 12px 14px;
-      border: 1px solid rgb(124 113 246 / 0.48);
+      border: 1px solid #7c71f6;
       border-radius: 8px;
       font: inherit;
       color: #ffffff;
       background: #180f52;
       outline: none;
-    }
-
-    textarea {
-      min-height: 80px;
       resize: vertical;
+
+      &:focus {
+        border-color: #bab4ff;
+        box-shadow: 0 0 0 3px rgb(124 113 246 / 0.24);
+      }
     }
 
-    textarea:focus {
-      border-color: #bab4ff;
-      box-shadow: 0 0 0 3px rgb(124 113 246 / 0.24);
+    .bad {
+      textarea {
+        /* 悪い例：キャレットが透明だと、入力位置を見つけにくい */
+        caret-color: transparent;
+      }
     }
 
-    .bad textarea {
-      /* 悪い例：キャレットが透明だと、入力位置を見つけにくい */
-      caret-color: transparent;
+    .bad2 {
+      textarea {
+        /* 悪い例：背景色とキャレットの色が近いと、入力位置を見つけにくい */
+        caret-color: #24146f;
+      }
     }
 
-    .bad2 textarea {
-      /* 悪い例：背景色とキャレットの色が近いと、入力位置を見つけにくい */
-      caret-color: #24146f;
+    .good {
+      textarea {
+        /* 良い例：入力位置を見つけやすいよう、明るい色を使う */
+        caret-color: #bab4ff;
+      }
     }
 
-    .good textarea {
-      /* 良い例：入力位置を見つけやすいよう、明るい色を使う */
-      caret-color: #bab4ff;
-    }
-
-    .form .translation {
-      color: #ebe9fc;
-    }
   </style>
 </head>
 
@@ -88,7 +92,7 @@
           😢️ キャレットが背景色と近い
           <span class="translation" lang="en">The caret color is close to the background color.</span>
         </span>
-        <textarea>キャレットが見えないと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
+        <textarea>キャレットが見えづらいと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
       </label>
     </div>
 
@@ -98,7 +102,7 @@
           ☺️ キャレットが見やすい
           <span class="translation" lang="en">The caret is easy to see.</span>
         </span>
-        <textarea>キャレットが見えないと、入力位置がわかりにくくなります。この文章は編集できます。</textarea>
+        <textarea>キャレットが見やすいと、入力位置を確認しながら編集できます。この文章は編集できます。</textarea>
       </label>
     </div>
   </div>

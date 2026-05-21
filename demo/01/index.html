@@ -37,16 +37,18 @@
       color: #ebe9fc;
     }
 
-    .good .article::selection {
-      /* 良い例：本文では、選択範囲が背景に埋もれない色にする */
-      background-color: #ebe9fc;
-      color: #3223b3;
-    }
+    .good {
+      .article::selection {
+        /* 良い例：本文では、選択範囲が背景に埋もれない色にする */
+        background-color: #ebe9fc;
+        color: #3223b3;
+      }
 
-    .good .code-block::selection {
-      /* 良い例：コードブロックでは、暗い背景でも読める色にする */
-      background-color: #bab4ff;
-      color: #21136f;
+      .code-block::selection {
+        /* 良い例：コードブロックでは、暗い背景でも読める色にする */
+        background-color: #bab4ff;
+        color: #21136f;
+      }
     }
   </style>
 </head>

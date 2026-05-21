@@ -18,6 +18,33 @@
       padding: 16px;
       border-radius: 8px;
       background: #f5f3ff;
+
+      a {
+        color: #3223b3;
+        text-decoration: underline;
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+
+        &:active {
+          color: #21136f;
+        }
+      }
+
+      button {
+        min-width: 220px;
+        padding: 12px 18px;
+        border: 1px solid #9185ef;
+        border-radius: 8px;
+        color: #3223b3;
+        background: #ffffff;
+        box-shadow: 0 1px 2px rgb(50 35 179 / 0.12);
+      }
+
+      a,
+      button {
+        /* 長押し時にテキスト選択の黒いハイライトが出ないようにする */
+        user-select: none;
+      }
     }
 
     .notice,
@@ -27,37 +54,20 @@
       text-align: center;
     }
 
-    .tap-group a {
-      color: #3223b3;
-      text-decoration: underline;
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.18em;
+    .bad {
+      a,
+      button {
+        /* 悪い例：透明にすると、モバイルでタップできた手がかりが弱くなる */
+        -webkit-tap-highlight-color: transparent;
+      }
     }
 
-    .tap-group button {
-      min-width: 220px;
-      padding: 12px 18px;
-      border: 1px solid #c8c1fb;
-      border-radius: 8px;
-      color: #3223b3;
-      background: #ffffff;
-      box-shadow: 0 1px 2px rgb(50 35 179 / 0.12);
-    }
-
-    .bad a,
-    .bad button {
-      /* 悪い例：透明にすると、タップできた手がかりが弱くなる */
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .good a,
-    .good button {
-      /* 良い例：薄い色で、タップできた手がかりを残す */
-      -webkit-tap-highlight-color: rgb(50 35 179 / 0.32);
-    }
-
-    .tap-group a:active {
-      color: #21136f;
+    .good {
+      a,
+      button {
+        /* 良い例：ハイライトを重ねて、タップできた手がかりを見えやすくする */
+        -webkit-tap-highlight-color: rgb(50 35 179 / 0.32);
+      }
     }
   </style>
 </head>
